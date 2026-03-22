@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Линейная интерполяция"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:layout_marginBottom="16dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="16dp">
+
+        <EditText
+            android:id="@+id/startValueEdit"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Начальное значение"
+            android:inputType="numberDecimal"
+            android:padding="8dp"/>
+
+        <EditText
+            android:id="@+id/endValueEdit"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Конечное значение"
+            android:inputType="numberDecimal"
+            android:padding="8dp"
+            android:layout_marginStart="8dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="16dp">
+
+        <EditText
+            android:id="@+id/totalLengthEdit"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Общая длина (м)"
+            android:inputType="numberDecimal"
+            android:padding="8dp"/>
+
+        <EditText
+            android:id="@+id/currentPointEdit"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Точка замера (м)"
+            android:inputType="numberDecimal"
+            android:padding="8dp"
+            android:layout_marginStart="8dp"/>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/calculateBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Рассчитать значение"
+        android:layout_marginBottom="24sp"/>
+
+    <TextView
+        android:id="@+id/resultText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Результат: "
+        android:textSize="18sp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Визуальная шкала -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Визуальная шкала:"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp"/>
+
+    <LinearLayout
+        android:id="@+id/visualScale"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        android:background="#E0E0E0"
+        android:layout_marginBottom="16dp">
+
+        <!-- Прогресс будет добавлен программно -->
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="#F5F5F5"
+        android:padding="16dp"
+        android:layout_marginTop="16dp">
+
+        <View
+            android:id="@+id/lineStart"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="@drawable/circle_blue"
+            android:layout_gravity="bottom|start"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="16dp"/>
+
+        <View
+            android:id="@+id/lineEnd"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="@drawable/circle_red"
+            android:layout_gravity="bottom|end"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"/>
+
+        <View
+            android:id="@+id/drawingLine"
+            android:layout_width="match_parent"
+            android:layout_height="4dp"
+            android:background="#2196F3"
+            android:layout_gravity="bottom"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginBottom="24dp"/>
+
+        <View
+            android:id="@+id/currentPointMarker"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="@drawable/circle_green"
+            android:layout_gravity="bottom"
+            android:visibility="invisible"
+            android:layout_marginBottom="20dp"/>
+
+        <TextView
+            android:id="@+id/pointValueText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|center_horizontal"
+            android:text=""
+            android:textSize="14sp"
+            android:layout_marginTop="8dp"/>
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="16dp"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/startValueLabel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Начало: 0"
+            android:textAlignment="viewStart"/>
+
+        <TextView
+            android:id="@+id/endValueLabel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Конец: 0"
+            android:textAlignment="viewEnd"/>
+    </LinearLayout>
+
+</LinearLayout>
